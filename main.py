@@ -41,5 +41,14 @@ r1.grid(row=2, column=0)
 r2 = tk.Radiobutton(root, text="Female", variable=g, value="Female")
 r2.grid(row=2, column=1)
 
+# athlete
+a = tk.IntVar()
+c1 = tk.Checkbutton(root, text="Athlete", variable=a)
+c1.grid(row=3, column=0)
+
+# button
+b1 = tk.Button(root, text="Calc", command=calc)
+b1.grid(row=4, column=0, columnspan=2)
+
 
 
