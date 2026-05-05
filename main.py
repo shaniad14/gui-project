@@ -16,3 +16,12 @@ def calculate_bmi():
     bmi = round(mass / (height ** 2), 2)
     
     result = f"BMI: {bmi}"
+
+     # Add gender
+    result += f" | Gender: {gender.get()}"
+    
+    # Check athlete box
+    if athlete.get() == 1:
+        result += " | Athlete"
+    
+    label_result.config(text=result)
