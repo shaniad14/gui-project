@@ -50,5 +50,11 @@ c1.grid(row=3, column=0)
 b1 = tk.Button(root, text="Calc", command=calc)
 b1.grid(row=4, column=0, columnspan=2)
 
+# result
+l3 = tk.Label(root, text="BMI:")
+l3.grid(row=5, column=0, columnspan=2)
+
+root.mainloop()
+
 
 
