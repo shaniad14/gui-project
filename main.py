@@ -33,4 +33,13 @@ s1 = tk.Scale(root, from_=1.0, to=2.5, resolution=0.1,
               orient="horizontal", label="Height")
 s1.grid(row=1, column=0, columnspan=2)
 
+# gender
+g = tk.StringVar()
+r1 = tk.Radiobutton(root, text="Male", variable=g, value="Male")
+r1.grid(row=2, column=0)
+
+r2 = tk.Radiobutton(root, text="Female", variable=g, value="Female")
+r2.grid(row=2, column=1)
+
+
 
