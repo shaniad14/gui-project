@@ -25,3 +25,8 @@ def calculate_bmi():
         result += " | Athlete"
     
     label_result.config(text=result)
+
+    # Mass input
+tk.Label(root, text="Mass (kg):").grid(row=0, column=0)
+entry_mass = tk.Entry(root)
+entry_mass.grid(row=0, column=1)
