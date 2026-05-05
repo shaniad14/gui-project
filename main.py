@@ -21,4 +21,16 @@ def calc():
     
     l3["text"] = text
 
+    # mass
+l1 = tk.Label(root, text="Mass")
+l1.grid(row=0, column=0)
+
+e1 = tk.Entry(root)
+e1.grid(row=0, column=1)
+
+# height slider
+s1 = tk.Scale(root, from_=1.0, to=2.5, resolution=0.1,
+              orient="horizontal", label="Height")
+s1.grid(row=1, column=0, columnspan=2)
+
 
