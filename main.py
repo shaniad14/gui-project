@@ -1,59 +1,62 @@
 import tkinter as tk
 
+# create window
 root = tk.Tk()
-root.title("BMI")
+root.title("BMI App")
 
-def calc():
-    m = float(e1.get())
-    h = s1.get()
-    
-    bmi = round(m / (h*h), 2)
-    
-    text = "BMI: " + str(bmi)
-    
-    if g.get() == "Male":
-        text += " Male"
-    if g.get() == "Female":
-        text += " Female"
-        
-    if a.get() == 1:
-        text += " Athlete"
-    
-    l3["text"] = text
+# FRAME
+frame = tk.Frame(root)
+frame.pack()
 
-    # mass
-l1 = tk.Label(root, text="Mass")
+# MASS
+l1 = tk.Label(frame, text="Mass (kg):")
 l1.grid(row=0, column=0)
 
-e1 = tk.Entry(root)
+e1 = tk.Entry(frame)
 e1.grid(row=0, column=1)
 
-# height slider
-s1 = tk.Scale(root, from_=1.0, to=2.5, resolution=0.1,
-              orient="horizontal", label="Height")
-s1.grid(row=1, column=0, columnspan=2)
+#  HEIGHT
+l2 = tk.Label(frame, text="Height (m):")
+l2.grid(row=1, column=0)
 
-# gender
-g = tk.StringVar()
-r1 = tk.Radiobutton(root, text="Male", variable=g, value="Male")
-r1.grid(row=2, column=0)
+e2 = tk.Entry(frame)
+e2.grid(row=1, column=1)
 
-r2 = tk.Radiobutton(root, text="Female", variable=g, value="Female")
-r2.grid(row=2, column=1)
-
-# athlete
+#  CHECKBUTTON 
 a = tk.IntVar()
-c1 = tk.Checkbutton(root, text="Athlete", variable=a)
-c1.grid(row=3, column=0)
+c1 = tk.Checkbutton(frame, text="Athlete", variable=a)
+c1.grid(row=2, column=0, columnspan=2)
 
-# button
-b1 = tk.Button(root, text="Calc", command=calc)
-b1.grid(row=4, column=0, columnspan=2)
+#  LABEL
+l3 = tk.Label(frame, text="BMI: ")
+l3.grid(row=4, column=0, columnspan=2)
 
-# result
-l3 = tk.Label(root, text="BMI:")
-l3.grid(row=5, column=0, columnspan=2)
+#  CANVAS 
+canvas = tk.Canvas(root, width=200, height=100)
+canvas.pack()
 
+# draw a rectangle 
+canvas.create_rectangle(50, 25, 150, 75)
+
+#  FUNCTION 
+def calc():
+    m = float(e1.get())
+    h = float(e2.get())
+
+    bmi = round(m / (h * h), 2)
+
+    text = "BMI: " + str(bmi)
+
+    if a.get() == 1:
+        text += " (Athlete)"
+
+    l3["text"] = text
+
+#  BUTTON 
+b1 = tk.Button(frame, text="Calculate BMI", command=calc)
+b1.grid(row=3, column=0, columnspan=2)
+
+# run app
 root.mainloop()
 
 
